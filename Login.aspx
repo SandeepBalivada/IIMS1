@@ -1,4 +1,4 @@
-﻿<%@ Page Language="VB" AutoEventWireup="false" EnableSessionState="True"
+﻿<%@ Page Language="VB"  AutoEventWireup="false" EnableSessionState="True"
     EnableViewState="true" CodeFile="Login.aspx.vb" Inherits="Login" MaintainScrollPositionOnPostback="true" %>
 
 <!DOCTYPE html>
@@ -6,22 +6,24 @@
 <html>
 
 <head>
+    <title>Infrastructure Incident Management System (IIMS) </title>
     <%--<title>Infrastructure Incident Management System (IIMS)</title>--%>
     <meta content="public" http-equiv="Cache-control" />
     <meta charset="utf-8" />
     <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+
     <meta content="width=device-width, initial-scale=1" name="viewport" />
 
     <%--<meta charset="utf-8" />--%>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Infrastructure Incident Management System (IIMS) </title>
+
 
     <asp:PlaceHolder runat="server">
         <%--<%: Scripts.Render("~/bundles/modernizr") %>--%>
     </asp:PlaceHolder>
     <webopt:bundlereference runat="server" path="~/Content/css" />
     <%--<link href="~/EILlogo.ico" rel="shortcut icon" type="image/x-icon" />--%>
-    <link rel="icon" type="image/png" href="http://example.com/myicon.png"></link>
+    <link rel="icon" type="image/png" href="~/EILlogo.ico"></link>
 
 
 
@@ -170,6 +172,9 @@
                 <h2 runat="server" id="webheading" style="color: #000; font-size: 25px; color: #337ab7; font-weight: bold; margin-top: 9px; margin-left: 80px;">Infrastructure Incident Management System (IIMS)</h2>
         </div>
     </div>
+    <div class="importantext-sec ">
+            <marquee behavior="scroll" direction="left" onmouseout="this.start();" onmouseover="this.stop();"> Engineers India Limited - net Zero by 2035<span class="mark-con" style="display:inline-block;margin-left:800px;">Delivering Excellence through People</span><span class="mark-con" style="display:inline-block;margin-left:800px;">हर काम देश के नाम - Har Kaam Desh Ke Naam </span></marquee>
+    </div>
 
     <div class="row">&nbsp;</div>
     <div class="row">&nbsp;</div>
@@ -178,14 +183,36 @@
 
     <div class="row">
         <div class="col-md-1"></div>
+         <div class="col-sm-2 swchhta-logo" style="padding-left: 80;">
+              <a href="https://swachhbharat.mygov.in/" target="_blank">
+              <img src="Content/images/logo-swachhta.png" class="" alt="" /><!-- <img src="images/logo-swachhta.png" alt=""> --></a>
+         </div>
+        <div class="col-md-1"></div>
+
+         <div class="col-sm-2" style="padding-left: 50;">
+              <a href="https://www.pmindia.gov.in/en/major_initiatives/make-in-india/" target="_blank">
+              <img src="Content/images/makeindia.jpg" class="" alt="" /><!-- <img src="images/logo-swachhta.png" alt=""> --></a>
+         </div>
+        
+         <div class="col-md-1" style="width: 14.1666661%; flex: 0 0 14.1666661%;max-width: 14.1666661%;"></div>
+        <div class="col-md-1" style="width: 10.8333329%; flex: 0 0 10.8333329%;max-width: 10.8333329%;">
+              <a href="https://engineersindia.com/" target="_blank">
+              <img src="Content/images/EIL.png" class="" alt="" /></a>
+         </div>
+        <div class="col-md-1"></div>
+        <div class="col-md-2"></div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-1"></div>
         <div class="col-md-5">
             <br />
 
             <h3 style="font-size: 2rem; font-weight: 600;">Infrastructure Incident Management System (IIMS)</h3>
 
-            <h5 class="fontsizse">The Planning & Scheduling Department at EIL ensures effective and timely implementation of projects through detailed assessment of work quantum, meticulous planning, micro level scheduling and dynamic monitoring. State of the art, international software packages on project management along with a supporting set of in-house developed software packages are used for detailed scheduling. The schedules are reviewed, updated and project completion outlook analyzed by planning engineers having vast experience in all phases of project Planning.<br />
+            <h5 class="fontsizse">Engineers India Ltd (EIL) is a leading global engineering consultancy and EPC company. Established in 1965, EIL provides engineering consultancy and EPC services principally focused on the oil & gas and petrochemical industries.The Company has also diversified into sectors like infrastructure, water and waste management, solar & nuclear power and fertilizers to leverage its strong technical competencies and track record.<br />
                 <br />
-                The department primarily uses spreadsheet (MS Excel) for management of data/information related to EIL Projects. To overcome the shortcomings such as more time taken in creating, revising and managing the flow of data/documents; this web-based software was envisaged.<br />
+                Infrastrucutre Incident Management System (IIMS) portal has been developed to record and maintain the different types of incidents that may happen inside the datacenter which will have minor or major impact on the functioning of the organization<br />
             </h5>
         </div>
         <div class="col-md-6 col-12">
@@ -217,29 +244,11 @@
                                 </div>
                             </div>
                         </div>
-<%--                        <div class="form-group fontsizselabel">
-                            <asp:Label runat="server" CssClass="col-md-4 control-label"><a href="#" onclick="javascript:RefreshCaptcha();"><b>Refresh</b></a></asp:Label>
-                            <div class="col-md-6" style="align-content: flex-start;">
-                                <asp:Image ID="imgCaptcha" runat="server" ImageUrl="Captcha.ashx" CssClass="form-control" Height="50" Width="180"></asp:Image>
-                            </div>
-                        </div>--%>
-                       <%-- <div class="form-group fontsizselabel">
-                            <label class="col-sm-3 control-label">Captcha</label>
-                            <div class="col-sm-7">
-                                <div class="input-group">
-                                    <asp:TextBox ID="txtCaptcha" runat="server" CssClass="form-control fontsizse" placeholder="Enter Captcha" autocomplete="off"></asp:TextBox>
-                                </div>
-                            </div>
-                        </div>--%>
-<%--                        <div class="row">
-                            <div class="col-md-12 fontsizselabel">
-                                <asp:Label ID="lblError" runat="server" Font-Bold="true" ForeColor="Firebrick"></asp:Label>
-                            </div>
-                        </div>--%>
+
                         <div class="form-group" style="margin-bottom: 0; font-size: 1.5rem">
                             <div class="col-md-offset-4 col-md-9">
-                                <%--<asp:Button ID="btnLogin" runat="server" OnClick="btnLogin_Click" OnClientClick="SubmitsEncry()" Text="Sign In" CssClass="btn btn-primary fontsizse" Style="margin-bottom: 10px; margin-top: 0;" />--%>
-                                <asp:Button ID="btnLogin" runat="server" Text="Sign In" CssClass="btn btn-primary fontsizse" Style="margin-bottom: 10px; margin-top: 0;" />
+                                <asp:Button ID="btnLogin" runat="server" OnClick="btnLogin_Click" OnClientClick="SubmitsEncry()" Text="Sign In" CssClass="btn btn-primary fontsizse" Style="margin-bottom: 10px; margin-top: 0;" />
+<%--                                <asp:Button ID="btnLogin" runat="server" Text="Sign In" CssClass="btn btn-primary fontsizse" Style="margin-bottom: 10px; margin-top: 0;" />--%>
 
                             </div>
                         </div>

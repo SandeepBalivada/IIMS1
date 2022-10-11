@@ -1,0 +1,584 @@
+﻿<%@ Master Language="VB" AutoEventWireup="True" CodeFile="Site.master.vb" Inherits="Site_Master" %>
+
+<%@ Import Namespace="System.Web.Optimization" %>
+
+<!DOCTYPE html>
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="minimal-ui, width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="blue">
+    <meta name="theme-color" content="#2B335C">
+    <meta name="description" content="EIL - Projections for Procurement Data (Lakshya Bharat)">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <link rel="apple-touch-icon" href="~/Content/images/MoPNG.JPG">
+    <link href="~/Content/images/apple-touch-startup-image-320x460.png" media="(device-width: 320px)" rel="apple-touch-startup-image">
+    <link href="~/Content/images/apple-touch-startup-image-640x920.png" media="(device-width: 320px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image">
+    <link href="~/Content/images/apple-touch-startup-image-640x1136.png" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image">
+    <link href="~/Content/images/apple-touch-startup-image-768x1004.png" media="(device-width: 768px) and (orientation: portrait)" rel="apple-touch-startup-image">
+    <link href="~/Content/images/apple-touch-startup-image-748x1024.png" media="(device-width: 768px) and (orientation: landscape)" rel="apple-touch-startup-image">
+    <link href="~/Content/images/apple-touch-startup-image-1536x2008.png" media="(device-width: 1536px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image">
+    <link href="~/Content/images/apple-touch-startup-image-2048x1496.png" media="(device-width: 1536px)  and (orientation: landscape) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image">
+    <link rel="shortcut icon" type="image/png" href="~/Content/static/images/favicon.ico">
+    <title>Projections for Procurement Data (Lakshya Bharat)</title>
+
+    <asp:PlaceHolder runat="server">
+        <%--  <% Scripts.Render("~/bundles/modernizr")%>--%>
+    </asp:PlaceHolder>
+
+
+
+
+    <link href="Content/images/eilsquare.png" type="image/x-icon" rel="shortcut icon" />
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap-5.1.0-dist/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/DataTables/datatables.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/jquery.floatingscroll.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/fontawesome/css/all.min.css" rel="stylesheet" type="text/css" />
+
+    <link rel="stylesheet" href="Content/css/style.css">
+    <link rel="stylesheet" href="~/Content/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/Content/css/style.css">
+    <link rel="stylesheet" href="~/Content/css/responsive.css">
+    <link rel="stylesheet" href="~/Content/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/Content/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="~/Content/css/aos.css">
+    <link rel="stylesheet" href="~/Content/css/menustyle.css">
+    <link rel="stylesheet" href="~/Content/css/newcss.css">
+    <link rel="stylesheet" href="~/Content/css/ace-responsive-menu.css">
+    <link rel="stylesheet" href="~/Content/css/fontawseom.css">
+
+    <style>
+        .mymodal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: black;
+            z-index: 99;
+            opacity: 0.4;
+            filter: alpha(opacity=80);
+            -moz-opacity: 0.8;
+            min-height: 100%;
+            width: 100%;
+        }
+
+        .dropdown-menu > li > a {
+            display: block;
+            padding: 3px 20px;
+            clear: both;
+            font-weight: 400;
+            line-height: 1.42857143;
+            color: #333;
+            white-space: nowrap;
+        }
+
+        .loading {
+            font-family: Arial;
+            font-size: 10pt;
+            display: none;
+            position: fixed;
+            z-index: 999;
+            backface-visibility: hidden;
+        }
+
+        @media ( min-width : 993px) {
+            div.row.tile {
+                width: 60%;
+                margin: auto;
+            }
+        }
+
+        #close {
+            color: white !important;
+        }
+
+        @media only screen and (max-width: 600px) {
+            #PnlModal {
+                width: 328px !important;
+            }
+        }
+
+        #PnlModal {
+            width: 600px;
+        }
+
+        @media only screen and (max-width: 600px) {
+            #PnlModal2 {
+                width: 322px !important;
+            }
+        }
+
+        #PnlModal2 {
+            width: 500px;
+        }
+    </style>
+    <style>
+        @media ( min-width : 993px) {
+            div.row.tile {
+                width: 60%;
+                margin: auto;
+            }
+        }
+
+        @media only screen and (max-width: 600px) {
+            #PnlModal2 {
+                width: 322px !important;
+            }
+        }
+
+        .dropdown-submenu > .dropdown-menu {
+            top: 0;
+            /*right: 100%;*/
+            margin-top: 0px;
+            margin-left: 0px;
+        }
+
+        .dropdown-submenu:hover > .dropdown-menu {
+            display: block;
+            left: 80%;
+        }
+
+        .dropdown-submenu {
+            position: relative;
+            font-size: medium;
+        }
+
+        .chevron::before {
+            border-style: solid;
+            border-width: 0.25em 0.25em 0 0;
+            content: '';
+            display: inline-block;
+            height: 0.45em;
+            left: 0.15em;
+            position: relative;
+            top: 0.15em;
+            transform: rotate(-45deg);
+            vertical-align: top;
+            width: 0.45em;
+        }
+
+        .chevron.bottom:before {
+            top: 16px;
+            transform: rotate(135deg);
+        }
+
+        .bg-menu1 {
+            background-color: #2b335c !important;
+        }
+
+        .close {
+            box-sizing: content-box !important;
+            width: 2em !important;
+            /*height: 2em !important;*/
+            padding: 0.25em 1em !important;
+            color: #000 !important;
+            background: transparent url(Content/images/cancel.png) center/1em no-repeat !important;
+            /*border: 0 !important;
+            border-radius: 0.25rem !important;
+            opacity: .5 !important;*/
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Start menu -->
+    <header id="header">
+
+        <div class="importantext-sec ">
+            <marquee behavior="scroll" direction="left" onmouseout="this.start();" onmouseover="this.stop();"> हर काम देश के नाम  Har Kaam Desh Ke Nam<span class="mark-con" style="display:inline-block;margin-left:800px;">हर काम देश के नाम Har Kaam Desh Ke Nam </span></marquee>
+        </div>
+        <div class="topStrip">
+            <div class="container">
+                <div class="row">
+                    <div class="col-8">
+                        <div class="TopleftNav">
+                            <ul>
+                                <li><a href="#" style="color: green; font-size: large;"><b>Projections for Procurement Data (Lakshya Bharat)</b></a></li>
+
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-4 text-right">
+                        <ul class="topNav">
+                            <li runat="server" id="lblJobNo" style="color: #323232; font-size: medium; font-weight: 600;"></li>
+                            <li runat="server" id="jobno" style="color: white; font-size: medium; font-weight: 500"></li>
+
+                            <li></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="headerRow">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="row">
+                                    <div class="col-10 col-sm-6">
+                                        <a href="https://engineersindia.com/" target="_blank">
+                                            <img src="Content/images/EIL.png" class="" alt="" /></a>
+                                    </div>
+
+                                    <div class="col-5 col-sm-3 swchhta-logo">
+                                        <a href="https://swachhbharat.mygov.in/" target="_blank">
+                                            <img src="Content/images/mopng/logo-swachhta.png" class="" alt="" /><!-- <img src="images/logo-swachhta.png" alt=""> --></a>
+                                    </div>
+
+                                    <div class="col-6 col-sm-3" style="padding-left: 0;">
+                                        <a href="https://www.pmindia.gov.in/en/major_initiatives/make-in-india/" target="_blank">
+                                            <img src="Content/images/mopng/makeindia.jpg" class="" alt="" /><!-- <img src="images/logo-swachhta.png" alt=""> --></a>
+                                    </div>
+
+
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="rightHedr">
+                            <div class="col-sm-12">
+                                <div class="col-sm-7 pull-left">
+                                    <div class="headRght invst-corner-link">
+                                        <asp:Label ID="lblWelcome" runat="server" ForeColor="Black" Font-Size="Medium" Font-Bold="true"></asp:Label>
+                                        <asp:Label ID="lblName" runat="server" ForeColor="Brown" Font-Size="Medium" Font-Bold="true"></asp:Label>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-5 headRight21" style="float: left;">
+                                    <div class="headRight2">
+
+                                        <%--<span><a href="http://mopng.gov.in/"><img src="/img/mpng/home.png" class="" title="Home" height="30" width="30" alt=""></a></span>--%>
+
+                                        <div class="btn-group" id="ddl_DIS" runat="server">
+                                            <div class="dropdown">
+                                                <button class="btn btn-sm bg-menu1 btn-outline-dark" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true" style="border-radius: 7px; color: white !important;">
+                                                    Menu
+                                                    <span class="chevron bottom"></span>
+                                                </button>
+                                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+
+                                                    <% If Session("ROLE_ID") = "7" Or Session("ROLE_ID") = "5" Or Session("USER_ID") = "C054" Then%>
+                                                    <%--C054 is current labh coordinator from planning--%>
+                                                    <li><a class="dropdown-item h5" onclick="ShowProgress()" href="Home.aspx">Home</a></li>
+                                                    <% End If%>
+
+                                                    <% If Session("ROLE_ID") <> "" And Session("ROLE_ID") <> "6" And Session("ROLE_ID") <> "8" Then%>
+                                                    <li><a class="dropdown-item h5" onclick="ShowProgress()" href="OpenProject.aspx">Open Project</a></li>
+                                                    <% End If%>
+
+                                                    <% If Session("ROLE_ID") <> "" And Session("ROLE_ID") <> "6" And Session("ROLE_ID") <> "8" Then%>
+                                                    <li class="dropdown-submenu">
+                                                        <a class="dropdown-item" href="#">&laquo;  Project Data</a>
+                                                        <ul class="dropdown-menu" style="background-color: #F0FFFF">
+                                                            <li><a class="dropdown-item h5" onclick="ShowProgress()" href="InputData_3.aspx">Input Data</a></li>
+                                                            <%-- <% If Session("ROLE_ID") <> "" And Session("ROLE_ID") = "7" Then%>--%>
+                                                            <li><a class="dropdown-item h5" onclick="ShowProgress()" href="ImportData_1.aspx">Import Data</a></li>
+                                                            <%--<% End If%>--%>
+                                                            <li><a class="dropdown-item h5" onclick="ShowProgress()" href="ViewData.aspx">View/Issue Data</a></li>
+                                                            <li><a class="dropdown-item h5" onclick="ShowProgress()" href="ReviseData.aspx">Revise Data</a></li>
+                                                        </ul>
+                                                    </li>
+                                                    <% End If%>
+
+                                                    <% If Session("ROLE_ID") <> "" Then%>
+                                                    <li class="dropdown-submenu">
+                                                        <a class="dropdown-item" href="#">&laquo;  Data Overview</a>
+                                                        <ul class="dropdown-menu" style="background-color: #F0FFFF">
+                                                            <li><a class="dropdown-item h5" onclick="ShowProgress()" href="DataOverview.aspx">Overall</a></li>
+                                                            <li><a class="dropdown-item h5" onclick="ShowProgress()" href="DataOverview_Job.aspx">Project Level</a></li>
+                                                        </ul>
+                                                    </li>
+                                                    <% End If%>
+
+
+                                                    <% If Session("ROLE_ID") <> "" And (Session("ROLE_ID") = "7" Or Session("ROLE_ID") = "6" Or Session("ROLE_ID") = "8" Or Session("ROLE_ID") = "5" Or Session("USER_ID") = "C054") Then%>
+                                                    <li><a class="dropdown-item h5" onclick="ShowProgress()" href="JobStatus.aspx">Job Progress Status</a></li>
+                                                    <% End If%>
+
+                                                    <% If Session("ROLE_ID") <> "" And (Session("ROLE_ID") = "7" Or Session("ROLE_ID") = "6" Or Session("ROLE_ID") = "8") Then%>
+                                                    <li><a class="dropdown-item h5" onclick="ShowProgress()" href="IssueData.aspx">Export Data to LB</a></li>
+                                                    <li><a class="dropdown-item h5" onclick="ShowProgress()" href="ViewIssuedData.aspx">View Exported Data</a></li>
+                                                    <% End If%>
+
+                                                    <% If Session("ROLE_ID") <> "" Then%>
+                                                    <li><a class="dropdown-item h5" href="#" onclick="OpenURLS('UserManual/PFPD - User Manual.pdf')">User Manual</a></li>
+                                                    <% End If%>
+                                                </ul>
+                                            </div>
+                                        </div>
+
+                                        <a href="Logout.aspx" class="btn btn-danger" style="border-radius: 7px; color: white !important;" id="divLogout" runat="server">
+                                            <span class="fa fa-sign-out-alt"></span>&nbsp;Logout
+                                        </a>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div id="mySidebar" class="sidebar intro" runat="server">
+            <%-- <a href="#" id="close" class="closebtn" onclick="closeNav()" style="text-align: center;">×</a>--%>
+            <div class="sidebar-navigation">
+                <ul>
+                    <li><a href="#">&nbsp;</a></li>
+                    <% If Session("ROLE_ID") <> "" And Session("ROLE_ID").ToString().Equals("7") Then%>
+                    <li><a onclick="ShowProgress()" href="OpenProject.aspx">Open Project</a></li>
+                    <li onclick="openSubMenu()"><a href="#">Project Data <em>
+                        <img src="Content/images/chevron-down.png" style="height: 12px;" /></em></a>
+                        <ul id="sub-menu" class="subMenuColor1" style="display: none;">
+                            <li><a onclick="ShowProgress()" href="InputData.aspx">Input Data</a></li>
+                            <li><a onclick="ShowProgress()" href="ViewData.aspx">View/Issue Data</a></li>
+                            <li><a onclick="ShowProgress()" href="ReviseData.aspx">Revise Data</a></li>
+                        </ul>
+                    </li>
+                    <% End If%>
+                    <li onclick="openSubMenu_1()"><a href="#">Data Overview<em>
+                        <img src="Content/images/chevron-down.png" style="height: 12px;" /></em></a>
+                        <ul id="sub-menu1" class="subMenuColor1" style="display: none;">
+                            <li><a onclick="ShowProgress()" href="DataOverview.aspx">Overall</a></li>
+                            <li><a onclick="ShowProgress()" href="DataOverview_Job.aspx">Project Level</a></li>
+                        </ul>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+    </header>
+
+    <form runat="server">
+        <asp:ScriptManager runat="server">
+            <Scripts>
+                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="Scripts/WebForms/WebForms.js" />
+                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="Scripts/WebForms/WebUIValidation.js" />
+                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="Scripts/WebForms/MenuStandards.js" />
+                <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="Scripts/WebForms/GridView.js" />
+                <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="Scripts/WebForms/DetailsView.js" />
+                <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="Scripts/WebForms/TreeView.js" />
+                <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="Scripts/WebForms/WebParts.js" />
+                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="Scripts/WebForms/Focus.js" />
+            </Scripts>
+        </asp:ScriptManager>
+
+        <div class="loading" align="center">
+            <img src="Content/images/loading.gif" alt="Loading! Please wait." title="Loading! Please wait." />
+        </div>
+
+
+
+
+        <div class="container body-content">
+            <div class="starter-template">
+                <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+        </div>
+        <div class="row">&nbsp;</div>
+        <div class="row">&nbsp;</div>
+        <div class="row">&nbsp;</div>
+    </form>
+
+
+    <style>
+        .footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            background-color: #4682B4;
+            color: white;
+            text-align: center;
+        }
+
+        @media only screen and (max-width: 600px) {
+            .footer {
+                height: 100px;
+            }
+        }
+    </style>
+
+    <%--  <footer id="footer">--%>
+    <div class="footer">
+        <div class="container" style="height: 35px; width: 100%;">
+            <div class="row">
+                <table style="padding: 0">
+                    <tbody style="background-color: #4682B4;">
+                        <tr>
+                            <td style="width: 100%; align-content: flex-end;">For any Queries or Support - <a href="#" onclick="window.open('Support.aspx', '_blank');">
+                                <font color="White"><u>Click Here</u></font>
+                            </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <%-- </footer>--%>
+
+    <script type="text/javascript" src="Content/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="Content/bootstrap-5.1.0-dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="Content/DataTables/datatables.min.js"></script>
+    <%--<script type="text/javascript" src="Content/jquery.floatingscroll.min.js"></script>--%>
+    <script type="text/javascript" src="Content/fontawesome/js/all.min.js"></script>
+    <script type="text/javascript" src="Content/basic.js"></script>
+    <script src="Scripts/toword.js"></script>
+    <script type="text/javascript">
+
+        function ShowDocumentPopup(path, fileType) {
+            var width = screen.width * 0.5;
+            var height = screen.height * 0.4;
+            var x = (screen.width - width) / 2;
+            var y = (screen.height - height) / 2;
+            xx = window.open("dglBoxForDocument.aspx?path=" + path + "&type=" + fileType, "_self", "titlebar=no,directories=no,location=no,menubar=no, toolbars=no, resizable=yes, maximized=yes, scrollbars=yes,status=1, width=" + width + ",height=" + height + ",top=" + y + ",left=" + x + ", title");
+        }
+
+        function OpenURLS(str) {
+            var width = screen.width * 0.6;
+            var height = screen.height * 0.6;
+            var x = (screen.width - width) / 2;
+            var y = (screen.height - height) / 2;
+            xx = window.open(str, "_blank", "titlebar=no,directories=no,location=no,menubar=no, toolbars=no, resizable=yes, maximized=no, scrollbars=yes,status=1, width=" + width + ",height=" + height + ",top=" + y + ",left=" + x + ", title");
+        }
+
+    </script>
+    <script type="text/javascript">
+        function openNav() {
+            setTimeout(function () { }, 1000);
+            var x = window.matchMedia("(max-width: 700px)")
+            if (x.matches) {
+                document.getElementById("mySidebar").style.width = "307px";
+            }
+            else {
+                document.getElementById("mySidebar").style.width = "380px";
+            }
+            //document.getElementById("main").style.marginLeft = "380px";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidebar").style.width = "0";
+            document.getElementById("sub-menu").style.display = "none";
+            //document.getElementById("main").style.marginLeft= "0";
+        }
+
+        function openSubMenu() {
+            if (document.getElementById("sub-menu").style.display == "none") {
+                document.getElementById("sub-menu").style.display = "block";
+            }
+            else {
+                document.getElementById("sub-menu").style.display = "none";
+            }
+        }
+        function openSubMenu_1() {
+            if (document.getElementById("sub-menu1").style.display == "none") {
+                document.getElementById("sub-menu1").style.display = "block";
+            }
+            else {
+                document.getElementById("sub-menu1").style.display = "none";
+            }
+        }
+
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            window.history.pushState(null, "", window.location.href);
+            window.onpopstate = function () {
+                window.history.pushState(null, "", window.location.href);
+            };
+        });
+
+        function ShowProgress() {
+            setTimeout(function () {
+                var modal = $('<div />');
+                modal.addClass("mymodal");
+                $('body').append(modal);
+                var loading = $(".loading");
+                loading.show();
+                var top = Math.max($(window).height() / 2 - loading[0].offsetHeight / 2, 0);
+                var left = Math.max($(window).width() / 2 - loading[0].offsetWidth / 2, 0);
+                loading.css({ top: top, left: left });
+            }, 300);
+        }
+        $(function () {
+            $('.progress').on("click", null, function () {
+                ShowProgress();
+            });
+        });
+    </script>
+
+    <script src="Scripts/bootstrap-datepicker.js"></script>
+    <script src="Scripts/bootstrap-datepicker.min.js"></script>
+    <link href="Content/bootstrap-datepicker.min.css" rel="stylesheet" />
+    <script type="text/javascript">
+        function pageLoad() {
+            $(".mydate").unbind();
+            $(".mydate").datepicker({ dateFormat: "dd-mm-yy" }).val()
+        }
+
+        function onlyNumberKey(evt) {
+            // Only ASCII charactar in that range allowed 
+            var ASCIICode = (evt.which) ? evt.which : evt.keyCode
+            if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57)) {
+                alert('Only Numeric Value allowed')
+                return false;
+            }
+
+            return true;
+        }
+
+        function onlyAlphabet(evt) {
+            // Only ASCII charactar in that range allowed 
+            var ASCIICode = (evt.which) ? evt.which : evt.keyCode
+            if ((ASCIICode > 64 && ASCIICode < 91) || (ASCIICode > 96 && ASCIICode < 123)) {
+                return true;
+            }
+            alert('Only Alphabets  allowed')
+            return false;
+        }
+
+        ///done by kavita
+        function isNumber(evt, id) {
+            evt = (evt) ? evt : window.event;
+            var charCode = (evt.which) ? evt.which : evt.keyCode;
+
+            if (charCode == 46) {
+                var txt = document.getElementById(id).value;
+                if (!(txt.indexOf(".") > -1)) {
+
+                    return true;
+                }
+            }
+            if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+                return false;
+            }
+            return true;
+        }
+
+    </script>
+
+    <script type="text/javascript">
+    <!--Vedant - To disable Back button on website-->
+
+    function DisableBackButton() {
+        window.history.forward()
+    }
+    DisableBackButton();
+    window.onload = DisableBackButton;
+    window.onpageshow = function (evt) { if (evt.persisted) DisableBackButton() }
+    window.onunload = function () { void (0) }
+    </script>
+</body>
+</html>

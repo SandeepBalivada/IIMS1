@@ -32,4 +32,25 @@ Public Class Login
     Private Const AES_KEY As String = "AES_KEY"
     Public Shared ipaddr As String
     Dim tmpxxx As Integer
+
+    Protected Sub btnLogin_Click(ByVal sender As Object, ByVal e As System.EventArgs)
+        Dim temp_div, temp_dept As String
+
+        Dim empno As String = txtEmpno.Text.ToString()
+        Dim password As String = txtPwd.Text.ToString()
+        Dim choice As Boolean
+
+      
+
+        If empno = "123" And password = "123" Then
+            choice = True
+        End If
+
+        If choice Then
+            Response.Redirect("Home.aspx")
+        End If
+
+
+    End Sub
+
 End Class
