@@ -35,12 +35,12 @@ Public Class Home
     Protected Sub btnSubmit_Click(ByVal sender As Object, ByVal e As System.EventArgs)
         Dim temp_div, temp_dept As String
 
-        Dim eventDate As String = txtDate.Text.ToString()
-        Dim systemName As String = txtSystemName.Text.ToString()
-        Dim details As String = txtDetails.Text.ToString()
-        Dim impact As String = txtImpact.Text.ToString()
-        Dim actionTaken As String = txtActionTaken.Text.ToString()
-        Dim actionTakenBy As String = txtActionTakenBy.Text.ToString()
+        Dim eventDate As String = txtDate.Text.Trim.ToString()
+        Dim systemName As String = txtSystemName.Text.Trim.ToString()
+        Dim details As String = txtDetails.Text.Trim.ToString()
+        Dim impact As String = txtImpact.Text.Trim.ToString()
+        Dim actionTaken As String = txtActionTaken.Text.Trim.ToString()
+        Dim actionTakenBy As String = txtActionTakenBy.Text.Trim.ToString()
 
         Dim choice As Boolean
 
@@ -50,7 +50,11 @@ Public Class Home
         Try
             Command.Connection = Conn
             Command.Transaction = transaction
-            Command.CommandText = "INSERT INTO IIMSRECORDS(SYS_NAME,DETAILS,IMPACT,ACTION_TAKEN,ACTION_TAKEN_BY)VALUES('" & txtSystemName.Text.Trim & "','" & txtDetails.Text.Trim & "','" & txtImpact.Text.Trim & "','" & txtActionTaken.Text.Trim & "','" & txtActionTakenBy.Text & "')"
+            'Command.CommandText = "INSERT INTO IIMSRECORDS(SYS_NAME,DETAILS,IMPACT,ACTION_TAKEN,ACTION_TAKEN_BY)VALUES('" & txtSystemName.Text.Trim & "','" & txtDetails.Text.Trim & "','" & txtImpact.Text.Trim & "','" & txtActionTaken.Text.Trim & "','" & txtActionTakenBy.Text & "')"
+            'Command.CommandText = "INSERT INTO IIMSRECORDS(INCDATE,SYS_NAME,DETAILS,IMPACT,ACTION_TAKEN,ACTION_TAKEN_BY)VALUES(TO_DATE('" & eventDate & "','dd-mm-yyyy')," & systemName & "','" & details & "','" & impact & "','" & actionTaken & "','" & actionTakenBy & "')"
+            'Command.CommandText = "insert into iimsRecords (INCDATE,SYS_NAME,DETAILS,IMPACT,ACTION_TAKEN,ACTION_TAKEN_BY) values (to_date(' " & eventDate & " ','yyyy-mm-dd'), 'Tenders Server','Tenders application stopped working', 'Login problem', 'FIPS complaint option has been enabled for VAPT-disabled','Sandeep')"
+            Command.CommandText = "insert into iimsRecords (INCDATE,SYS_NAME,DETAILS,IMPACT,ACTION_TAKEN,ACTION_TAKEN_BY) values (to_date(' " & eventDate & " ','yyyy-mm-dd'), ' " & systemName & " ',' " & details & "','" & impact & "','" & actionTaken & "','" & actionTakenBy & "')"
+
             Command.ExecuteNonQuery()
             transaction.Commit()
             errmsg.Text = "Data saved"

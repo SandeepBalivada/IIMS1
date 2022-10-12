@@ -145,16 +145,15 @@
                             </h3>
                         </div>
                         <div class="panel-body">
-                            <%--<form autocomplete="on" runat="server" class="form-horizontal">--%>
                                 <asp:ScriptManager runat="server"></asp:ScriptManager>
                                 <div class="form-group fontsizselabel">
                                     <label class="col-sm-3 control-label" for="txtDate">Date</label>
                                     <div class="col-sm-9" style="display: flex;">
-                                        <div class="input-group">
-                                            <asp:TextBox runat="server" ID="txtDate" placeholder="DD-MM-YY" CssClass="form-control fontsizse" />
+                                        <div class="input-group" style="font-size: 1.5rem;width: 100%;opacity:0.85;">
+                                            <asp:TextBox runat="server" ID="txtDate" placeholder="DD-MM-YY" CssClass="form-control fontsizse" textmode="Date" />
         <%--                                    <asp:Calendar runat="server" ID="txtEmpno" placeholder="DD-MM-YY" Visible="False" CssClass="form-control fontsizse" autocomplete="off" />--%>
                                             <asp:HiddenField ID="aesKeyField" runat="server" Value="" />
-                                            <span class="input-group-addon" id="basic-addon1"><i aria-hidden="true" class="glyphicon glyphicon-calendar"></i></span>
+                                            <span class="input-group-addon" id="basic-addon1"><i aria-hidden="true" class="glyphicon glyphicon-calendar" style="opacity:1.0;"></i></span>
                                         </div>
                                     </div>
                                 </div>
@@ -162,36 +161,51 @@
                                 <div class="form-group fontsizselabel">
                                     <label class="col-sm-3 control-label" for="txtSystemName">System Name</label>
                                     <div class="col-sm-9" style="display: flex;">
-                                        <div class="input-group" style="font-size: 1.5rem;">
+                                        <div class="input-group" style="font-size: 1.5rem;width: 100%;">
                                             <asp:TextBox runat="server" ID="txtSystemName" placeholder="System Name" CssClass="form-control fontsizse" />
-                                            <span class="input-group-addon" id="basic-addon2"><i aria-hidden="true" class="	glyphicon glyphicon-hdd"></i></span>
+                                            <span class="input-group-addon" id="basic-addon2"><i aria-hidden="true" class="	glyphicon glyphicon-hdd" style="opacity:0.8;"></i></span>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-group fontsizselabel">
                                     <label class="col-sm-3 control-label" for="txtDetails">Details of the Event</label>
                                     <div class="col-sm-9" style="display: flex;">
-                                        <div class="input-group" style="font-size: 1.5rem;">
+                                        <div class="input-group" style="font-size: 1.5rem;width: 100%;">
                                             <asp:TextBox runat="server" ID="txtDetails" placeholder="Enter event details" CssClass="form-control fontsizse" />
-                                            <span class="input-group-addon" id="basic-addon3"><i aria-hidden="true" class="glyphicon glyphicon-folder-open"></i></span>
+                                            <span class="input-group-addon" id="basic-addon3"><i aria-hidden="true" class="glyphicon glyphicon-folder-open" style="opacity:0.8;"></i></span>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-group fontsizselabel">
                                     <label class="col-sm-3 control-label" for="txtImpact">Impact of the Event</label>
                                     <div class="col-sm-9" style="display: flex;">
-                                        <div class="input-group" style="font-size: 1.5rem;">
+                                        <div class="input-group" style="font-size: 1.5rem;width: 100%;">
                                             <asp:TextBox runat="server" ID="txtImpact" placeholder="Enter impact details" CssClass="form-control fontsizse" />
-                                            <span class="input-group-addon" id="basic-addon4"><i aria-hidden="true" class="glyphicon glyphicon-star"></i></span>
+                                            <span class="input-group-addon" id="basic-addon4"><i aria-hidden="true" class="glyphicon glyphicon-star" style="opacity:0.8;"></i></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group fontsizselabel">
+                                    <label class="col-sm-3 control-label" for="txtImpact">Impact of the Event2</label>
+                                    <div class="col-sm-9" style="display: flex;">
+                                        <div class="input-group" style="font-size: 1.5rem;width: 100%;">
+                                                <asp:DropDownList ID="impactLevel" runat="server" placeholder="Enter impact Level" AutoPostBack="True" Style="height: 100%;width: 100%;opacity:0.8;" Width="208px" CssClass="form-control fontsizse">
+                                                    <asp:ListItem Value="" Style="opacity:0.2;">--  Select Level of Impact --</asp:ListItem>
+                                                    <asp:ListItem>Minimal </asp:ListItem>  
+                                                    <asp:ListItem>Moderate</asp:ListItem>  
+                                                    <asp:ListItem>Critical</asp:ListItem>  
+                                                </asp:DropDownList>                                                
+<%--                                            <asp:TextBox runat="server" ID="TextBox1" placeholder="Enter impact details" CssClass="form-control fontsizse" />--%>
+                                            <span class="input-group-addon" id="basic-addon7"><i aria-hidden="true" class="glyphicon glyphicon-star" style="opacity:0.8;"></i></span>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-group fontsizselabel">
                                     <label class="col-sm-3 control-label" for="txtActionTaken">Action taken</label>
                                     <div class="col-sm-9" style="display: flex;">
-                                        <div class="input-group" style="font-size: 1.5rem;">
+                                        <div class="input-group" style="font-size: 1.5rem;width: 100%;">
                                             <asp:TextBox runat="server" ID="txtActionTaken" placeholder="Action taken" CssClass="form-control fontsizse" />
-                                            <span class="input-group-addon" id="basic-addon5"><i aria-hidden="true" class="glyphicon glyphicon-ok"></i></span>
+                                            <span class="input-group-addon" id="basic-addon5"><i aria-hidden="true" class="glyphicon glyphicon-ok" style="opacity:0.8;"></i></span>
                                         </div>
                                     </div>
                                 </div>
@@ -199,17 +213,18 @@
                                 <div class="form-group fontsizselabel">
                                     <label class="col-sm-3 control-label" for="txtActionTakenBy">Action taken by</label>
                                     <div class="col-sm-9" style="display: flex;">
-                                        <div class="input-group" style="font-size: 1.5rem;">
+                                        <div class="input-group" style="font-size: 1.5rem;width: 100%;">
                                             <asp:TextBox runat="server" ID="txtActionTakenBy" placeholder="Action taken by" CssClass="form-control fontsizse" />
-                                            <span class="input-group-addon" id="basic-addon6"><i aria-hidden="true" class="glyphicon glyphicon-user"></i></span>
+                                            <span class="input-group-addon" id="basic-addon6"><i aria-hidden="true" class="glyphicon glyphicon-user" style="opacity:0.8;"></i></span>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="form-group" style="margin-bottom: 0; font-size: 1.5rem">
-                                    <div class="col-md-offset-4 col-md-9">
+                                <div class="form-group" style="margin-bottom: 0; font-size: 1.5rem;">
+                                    <%--<div class="col-md-offset-4 col-md-9">--%>
+                                    <div align="center">
                                             <asp:Button ID="btnSubmit" runat="server" OnClick="btnSubmit_Click" Text="Submit" CssClass="btn btn-primary fontsizse" Style="margin-bottom: 10px; margin-top: 0;" />
                                     </div>
-                     </div>
+                              </div>
 
 
                                  <table>
@@ -229,12 +244,9 @@
 
             </div>
             <div class="row">
-              <div class="panel-heading"></div>
-              <div class="col-md-5"></div>
-              <div class="col-md-4" >
+              <div class="panel-heading" align="center">
                 <asp:Button ID="btnConfirm" runat="server" Text="View Records" PostBackUrl="~/ViewRecords.aspx" CssClass="btn btn-primary fontsizse" Style="margin-bottom: 10px; margin-top: 0;" />
-               </div>
-              <div class="col-md-3"></div>
+              </div>
             </div>
 
 

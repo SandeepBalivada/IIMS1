@@ -1,10 +1,12 @@
 Imports Oracle.ManagedDataAccess.Client
+Imports Microsoft.VisualBasic
 Imports System.Data
 Imports System.Data.OleDb
 Imports System.Configuration.AppSettingsReader
 'Imports System.DirectoryServices
 Imports System.Drawing
 Imports System.Drawing.Imaging
+Imports System.DirectoryServices
 'Imports App_Code
 Imports System
 Imports System.Collections.Generic
@@ -33,6 +35,41 @@ Public Class Login
     Public Shared ipaddr As String
     Dim tmpxxx As Integer
 
+    Public Function IsAuthenticated(ByVal domain As String, ByVal userId As String, ByVal pwd As String) As Boolean
+        Dim location As String = ""
+        Dim depCode As String = ""
+        Dim divCode As String = ""
+        Dim level As String = ""
+        Dim designation As String = ""
+        Dim empCode As String = ""
+        Dim mailId As String = ""
+        Dim displayName As String = ""
+        Dim divName As String = ""
+
+
+        Dim domainAndUsername As String = domain + "\" + userId
+
+        Dim entry As New DirectoryEntry("LDAP://" + "eil.co.in", domainAndUsername, pwd)
+        Try
+            Dim search As New DirectorySearcher(entry)
+            search.Filter = "(SAMAccountName=" + userId + ")"
+            Dim result As SearchResult = search.FindOne
+
+            If result Is Nothing Then
+                Return False
+            Else
+                Return True
+
+            End If
+
+        Catch ex As Exception
+            Response.Write(ex.Message.ToString)
+            Return False
+        End Try
+        Return True
+    End Function
+
+
     Protected Sub btnLogin_Click(ByVal sender As Object, ByVal e As System.EventArgs)
         Dim temp_div, temp_dept As String
 
@@ -48,6 +85,12 @@ Public Class Login
 
         If choice Then
             Response.Redirect("Home.aspx")
+        End If
+
+        If IsAuthenticated("eildc", empno, password) Then
+            Response.Redirect("Home.aspx")
+        Else
+            Response.Write("<script language=""javascript"">alert('Invalid User!!!');</script>")
         End If
 
 
