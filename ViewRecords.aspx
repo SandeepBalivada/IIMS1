@@ -1,4 +1,4 @@
-﻿<%@ Page Language="VB" AutoEventWireup="false" CodeFile="ViewRecords.aspx.vb" Inherits="ViewRecords" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="ViewRecords.aspx.cs" Inherits="ViewRecords" %>
 
 
 <!DOCTYPE html>
@@ -147,7 +147,83 @@
 
                         <%--                                <asp:Button ID="btnLogin" runat="server" Text="Sign In" CssClass="btn btn-primary fontsizse" Style="margin-bottom: 10px; margin-top: 0;" />--%>
 
-                        <asp:GridView ID="GridView1" runat="server">
+                        <%--<asp:GridView ID="GridView1" runat="server">
+                        </asp:GridView>--%>
+                        <asp:GridView ID="gvTransfer"  class="panel panel-primary" runat="server" DataKeyNames="RECORDID" AutoGenerateColumns="False" OnRowCommand="gvTransfer_RowCommand"
+                            AllowSorting="true" OnRowDataBound="gvTransfer_RowDataBound" CssClass="myTable_New" OnRowDeleting="gvTransfer_RowDeleting">
+
+                            <HeaderStyle HorizontalAlign="Left" BackColor="#337ab7" ForeColor="White" CssClass="GVFixedHeader" />
+                            <Columns>
+                                <asp:TemplateField HeaderText="SNo" HeaderStyle-Width="5%">
+                                    <ItemStyle CssClass="myGridTextItem" VerticalAlign="Middle" HorizontalAlign="Center" />
+                                    <HeaderStyle CssClass="myGridHeader" HorizontalAlign="Center" />
+                                    <ItemTemplate>
+                                        <span>
+                                            <%# Container.DataItemIndex +1 %> 
+                                        </span>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+
+                                <asp:TemplateField HeaderText="Record ID" HeaderStyle-Width="5%">
+                                    <ItemStyle CssClass="myGridTextItem" VerticalAlign="Middle" HorizontalAlign="Center" />
+                                    <HeaderStyle CssClass="myGridHeader" HorizontalAlign="Center" />
+                                    <ItemTemplate>
+                                        <asp:Label runat="server" ID="lblVOUCHER_NO" Text='<%# Bind("RECORDID")%>'></asp:Label>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:BoundField DataField="INCDATE" HeaderText="Incident Date" HeaderStyle-Width="10%">
+                                    <ItemStyle CssClass="myGridTextItem" HorizontalAlign="center" />
+                                    <HeaderStyle CssClass="myGridHeader" HorizontalAlign="center" />
+                                </asp:BoundField>
+                                <asp:BoundField DataField="SYS_NAME" HeaderText="System Name" HeaderStyle-Width="10%">
+                                    <ItemStyle CssClass="myGridTextItem" HorizontalAlign="right" />
+                                    <HeaderStyle CssClass="myGridHeader" HorizontalAlign="right" />
+                                </asp:BoundField>
+                                <asp:BoundField DataField="DETAILS" HeaderText="Details" HeaderStyle-Width="20%">
+                                    <ItemStyle CssClass="myGridTextItem" HorizontalAlign="center" />
+                                    <HeaderStyle CssClass="myGridHeader" HorizontalAlign="center" />
+                                </asp:BoundField>
+                                <asp:BoundField DataField="IMPACT" HeaderText="Impact" HeaderStyle-Width="10%">
+                                    <ItemStyle CssClass="myGridTextItem" HorizontalAlign="center" />
+                                    <HeaderStyle CssClass="myGridHeader" HorizontalAlign="center" />
+                                </asp:BoundField>
+                                <asp:BoundField DataField="ACTION_TAKEN" HeaderText="Action Taken" HeaderStyle-Width="20%">
+                                    <ItemStyle CssClass="myGridTextItem" HorizontalAlign="left" />
+                                    <HeaderStyle CssClass="myGridHeader" HorizontalAlign="center" />
+                                </asp:BoundField>
+                                <asp:BoundField DataField="ACTION_TAKEN_BY" HeaderText="Action Taken By" HeaderStyle-Width="5%">
+                                    <ItemStyle CssClass="myGridTextItem" HorizontalAlign="right" />
+                                    <HeaderStyle CssClass="myGridHeader" HorizontalAlign="right" />
+                                </asp:BoundField>
+                                <%--                            <asp:BoundField DataField="W_INT_EMP" HeaderText="W Int Emp" HeaderStyle-Width="9%">
+                                <ItemStyle CssClass="myGridTextItem" HorizontalAlign="right" />
+                                <HeaderStyle CssClass="myGridHeader" HorizontalAlign="right" />
+                            </asp:BoundField>
+                            <asp:BoundField DataField="W_INT_EMPLYR" HeaderText="W Amt Emplyr" HeaderStyle-Width="9%">
+                                <ItemStyle CssClass="myGridTextItem" HorizontalAlign="right" />
+                                <HeaderStyle CssClass="myGridHeader" HorizontalAlign="right" />
+                            </asp:BoundField>
+                            <asp:BoundField DataField="W_AMT_TOT" HeaderText="W Amt Total" HeaderStyle-Width="9%">
+                                <ItemStyle CssClass="myGridTextItem" HorizontalAlign="right" />
+                                <HeaderStyle CssClass="myGridHeader" HorizontalAlign="right" />
+                            </asp:BoundField>
+
+                                --%>
+
+                                <asp:TemplateField HeaderText="Changes" HeaderStyle-Width="15%" HeaderStyle-HorizontalAlign="Center">
+                                    <HeaderStyle CssClass="myGridHeader" HorizontalAlign="Center" />
+                                    <ItemStyle CssClass="myGridTextItem" HorizontalAlign="center" />
+                                    <ItemTemplate>
+                                        <asp:HyperLink ID="hlView" runat="server" ImageUrl="/Content/Images/edit.jpg" ToolTip="Edit" />
+                                        <%--&nbsp; &nbsp;<asp:HyperLink ID="hlPrint" runat="server" CommandName="print" ImageUrl="/Content//Images/print.jpg" ToolTip="Print" />--%>
+                                        &nbsp;&nbsp;<asp:ImageButton ID="imgDelete" CommandName="delete" ImageUrl="/Content/Images/del.jpg" runat="server" Width="16px" Height="15px" OnClientClick="return confirm('Are you sure to delete this voucher.')" ToolTip="Delete" />
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                            </Columns>
+                            <EmptyDataRowStyle CssClass="myPageHeader" ForeColor="Red" />
+                            <EmptyDataTemplate />
+                            <SelectedRowStyle CssClass="myGridSelectedItemStyle" />
+                            <AlternatingRowStyle CssClass="myGridAlternatingItemStyle" />
                         </asp:GridView>
 
                     </div>
